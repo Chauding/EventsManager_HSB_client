@@ -1,0 +1,24 @@
+{
+  "en": {
+    "message": {
+      "successfulSave": "Successfully Saved",
+      "successfulDeleted": "Successfully Deleted",
+      "successfulRefreshed": "Successfully Refreshed",
+      "successfulUpdated": "Successfully Updated"
+    },
+    "button": {
+      "createNew": "Create New",
+      "addNew": "Add New",
+      "edit": "Edit",
+      "save": "Save",
+      "accept": "I Accept",
+      "confirm": "Confirm",
+      "delete": "Delete",
+      "notifications": "notifications",
+      "logout": "Logout",
+      "login": "Login",
+      "cancel": "Cancel",
+      "close": "Close"
+    }
+  }
+}
