@@ -7,12 +7,25 @@ const NotFound = () => import("../components/notFound.vue");
 const HelloWorld = () => import("../components/HelloWorld.vue");
 
 // The routes for the project.
-const routes = [
-  { path: "*", component: NotFound },
-  { path: "/notFound", name: "notFound", component: NotFound },
-  { path: "/home", name: "hellowWorld", component: HelloWorld }
+const routes = [{
+    path: "*",
+    component: NotFound
+  },
+  {
+    path: "/notFound",
+    name: "notFound",
+    component: NotFound
+  },
+  {
+    path: "/",
+    name: "hellowWorld",
+    component: HelloWorld
+  }
 ];
-const router = new VueRouter({ routes, mode: "history" });
+const router = new VueRouter({
+  routes,
+  mode: "history"
+});
 
 // router.beforeEach((to, from, next) => {
 

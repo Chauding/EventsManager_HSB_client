@@ -21,16 +21,23 @@ export const store = new Vuex.Store({
     snackBar: {
       text: "",
       show: false
-    }
+    },
+    drawer: true
   },
   getters: {
     getSnackBar: state => {
       return state.snackBar;
+    },
+    getDrawer: state => {
+      return state.drawer;
     }
   },
   mutations: {
     setSnackBar(state, data) {
       state.snackBar = data;
+    },
+    setDrawer(state, bool) {
+      state.drawer = bool;
     }
   },
   actions: {
