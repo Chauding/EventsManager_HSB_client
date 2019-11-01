@@ -9,6 +9,10 @@
         class="ma-auto d-block"
       ></v-img>
     </v-container>
+
+    <v-flex class="mt-4 ml-10">
+      <popup />
+    </v-flex>
     <v-list dense class="primary" dark>
       <template v-for="(item, i) in items">
         <v-subheader v-if="item.heading" :key="i">{{ item.heading }}</v-subheader>
@@ -52,14 +56,16 @@
   </v-navigation-drawer>
 </template>
 <script>
+import popup from './popup'
 export default {
+  components: { popup },
   data() {
     return {
       items: [
         { text: "Dashboard", icon: "dashboard", path: "/dashboard" },
         { text: "Calendar", icon: "events", path: "/calendar" },
         {
-          text: "Adin Section",
+          text: "Admin Section",
           icon: "supervised_user_circle",
           children: [
             { title: "Users", icon: "account_circle", path: "/users" },

@@ -1,6 +1,7 @@
 <template>
   <v-app-bar app fixed>
     <v-icon @click.stop="drawer = !drawer">mdi-menu</v-icon>
+    <input class="mx-10" type="text" placeholder="Search.." >
     <v-spacer></v-spacer>
     <v-btn icon>
       <v-icon>mdi-settings</v-icon>
