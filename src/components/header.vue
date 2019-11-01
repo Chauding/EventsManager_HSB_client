@@ -1,7 +1,13 @@
 <template>
-  <v-app-bar app color="indigo" dark>
-    <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-    <v-toolbar-title>Application</v-toolbar-title>
+  <v-app-bar app fixed>
+    <v-icon @click.stop="drawer = !drawer">mdi-menu</v-icon>
+    <v-spacer></v-spacer>
+    <v-btn icon>
+      <v-icon>mdi-settings</v-icon>
+    </v-btn>
+    <v-btn icon>
+      <v-icon>mdi-help</v-icon>
+    </v-btn>
   </v-app-bar>
 </template>
 <script>

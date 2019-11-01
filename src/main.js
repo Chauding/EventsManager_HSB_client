@@ -5,7 +5,10 @@ import header from "./components/header.vue";
 import drawer from "./components/drawer.vue";
 import snackBar from "./components/snackBar.vue";
 import vuetify from "./plugins/vuetify";
-import { store } from "./store/store";
+import {
+  store
+} from "./store/store";
+import 'material-design-icons-iconfont/dist/material-design-icons.css'
 // import VueI18n from "vue-i18n";
 // import messages from "./language/strings.json";
 
