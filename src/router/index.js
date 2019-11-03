@@ -5,7 +5,7 @@ Vue.use(VueRouter);
 // We import the components this way to lazy load them.
 const NotFound = () => import("../components/notFound.vue");
 const HelloWorld = () => import("../components/HelloWorld.vue");
-
+const Login = () => import("../components/login/login.vue");
 // The routes for the project.
 const routes = [{
     path: "*",
@@ -20,6 +20,12 @@ const routes = [{
     path: "/dashboard",
     name: "hellowWorld",
     component: HelloWorld
+  },
+  {
+    path: "/login",
+    name: "login",
+    component: Login
+
   }
 ];
 const router = new VueRouter({
@@ -28,7 +34,6 @@ const router = new VueRouter({
 });
 
 // router.beforeEach((to, from, next) => {
-
 // })
 
 export default router;

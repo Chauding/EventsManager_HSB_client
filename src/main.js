@@ -32,5 +32,7 @@ new Vue({
   vuetify,
   components: {
     App
-  }
+  },
+  mounted() {}
+
 }).$mount("#app");

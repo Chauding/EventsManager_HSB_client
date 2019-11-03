@@ -9,7 +9,7 @@ const state = {
 
 // getters
 const getters = {
-  getUser: state => {
+  getSessionUser: state => {
     return state.user;
   },
   getToken: state => {

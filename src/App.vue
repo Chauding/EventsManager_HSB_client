@@ -1,8 +1,8 @@
 <template>
   <v-app>
     <template>
-      <app-drawer></app-drawer>
-      <app-header></app-header>
+      <app-drawer v-if="isLoggedIn"></app-drawer>
+      <app-header v-if="isLoggedIn"></app-header>
     </template>
     <v-content transition="slide-x-transition">
       <router-view></router-view>
@@ -12,7 +12,15 @@
 
 <script>
 export default {
-  name: "App"
+  name: "App",
+  computed: {
+    isLoggedIn() {
+      return this.$store.getters.isLoggedIn;
+    },
+    sessionUser() {
+      return this.$store.getters.getSessionUser;
+    }
+  }
 };
 </script>
 
