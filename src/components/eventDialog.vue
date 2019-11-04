@@ -1,11 +1,8 @@
 <template>
   <v-row justify="center">
     <v-dialog v-model="dialog" persistent max-width="600">
-      <template v-slot:activator="{ on }">
-        <v-btn color="purple" class="mr-10" dark v-on="on">+ Add event</v-btn>
-      </template>
       <v-card>
-        <v-card-title class="headline">Add a new Event</v-card-title>
+        <v-card-title class="headline">Create New Event</v-card-title>
         <v-card-text>
           <v-form class="px-3">
             <v-text-field label="Title" v-model="title" prepend-icon="folder"></v-text-field>
@@ -36,8 +33,8 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn flat class="success" text @click="dialog = false">Cancel</v-btn>
-          <v-btn flat class="success" text @click="sumbit">Save</v-btn>
+          <v-btn flat class="success" text @click="$emit('onClose')">Cancel</v-btn>
+          <v-btn flat class="success" text @click="save">Save</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -45,26 +42,14 @@
 </template>
 
 <script>
-import format from "date-fns/format";
 export default {
+  props: ["dialog", "value"],
   data() {
-    return {
-      title: "",
-      content: "",
-      end: null,
-      start: null,
-      dialog: false
-    };
+    return {};
   },
   methods: {
-    submit() {
-      // console.log(this.title, this.content)
-    }
+    save() {}
   },
-  computed: {
-    formattedDate() {
-      return this.due ? format(this.due, "Do MMM YYY") : "";
-    }
-  }
+  computed: {}
 };
 </script>

@@ -4,6 +4,7 @@ import createPersistedState from "vuex-persistedstate";
 // import axiosCaller from "../components/axiosCaller.js"
 // importing modules
 import session from "./modules/session.js";
+import event from "./modules/event.js"
 
 Vue.use(Vuex);
 export const store = new Vuex.Store({
@@ -16,7 +17,10 @@ export const store = new Vuex.Store({
       paths: ["offline"]
     })
   ],
-  modules: [session],
+  modules: [
+    session,
+    event
+  ],
   state: {
     snackBar: {
       text: "",
