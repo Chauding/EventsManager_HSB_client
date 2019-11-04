@@ -4,23 +4,6 @@
       <v-flex xs10>
         <v-layout row wrap>
           <v-flex xs4>
-            <!-- <v-layout row wrap>
-              <v-flex xs3>
-                <v-avatar size="100" max-width="100px">
-                  <img
-                    src="https://images.pexels.com/photos/442544/pexels-photo-442544.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                    alt="profile"
-                    cover
-                  />
-                </v-avatar>
-              </v-flex>
-              <v-flex xs6 class="mt-4">
-                <div class="headline">Name</div>
-                <div></div>
-                <div class="subheadline">ROLE IN UNI</div>
-                <br />
-              </v-flex>
-            </v-layout>-->
             <v-list two-line subheader>
               <v-list-item>
                 <v-list-item-avatar>
@@ -45,7 +28,7 @@
     </v-layout>
     <v-layout row wrap>
       <v-flex xs12>
-        <calendar v-mdoel />
+        <calendar />
       </v-flex>
     </v-layout>
   </v-container>
@@ -71,6 +54,8 @@ export default {
       this.$store.commit("setIsLoggedIn", true);
       this.$store.commit("setToken", this.$route.query.token);
       this.$store.commit("setSessionUser", {});
+    } else if (!this.$store.getters.getToken) {
+      this.$router.push("/login");
     }
   },
   created() {

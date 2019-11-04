@@ -10,11 +10,8 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
   plugins: [
     createPersistedState({
-      paths: ["session"]
-    }),
-    createPersistedState({
-      key: "offline",
-      paths: ["offline"]
+      key: 'session',
+      paths: ['session']
     })
   ],
   modules: [

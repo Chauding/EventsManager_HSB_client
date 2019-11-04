@@ -8,7 +8,7 @@
         height="auto"
         class="ma-auto d-block"
       ></v-img>
-      <v-btn block class="primary--text mt-3" color="white">Add Event</v-btn>
+      <v-btn block @click="createNewEvent()" class="primary--text mt-3" color="white">Add Event</v-btn>
     </v-container>
     <v-list dense class="primary" dark>
       <template v-for="(item, i) in items">
@@ -62,16 +62,18 @@
   </v-navigation-drawer>
 </template>
 <script>
+import Vue from "vue";
 import EventDialog from "./eventDialog.vue";
-import axios from "axios";
+// import axios from "axios";
+import axios from "./axiosCaller.js";
 import moment from "moment";
+Vue.component("event-dialog", EventDialog);
 export default {
-  components: [{ "event-dialog": EventDialog }],
   data() {
     return {
       items: [
         { text: "Dashboard", icon: "dashboard", path: "/dashboard" },
-        { text: "Calendar", icon: "event", path: "/calendar" },
+        { text: "All Calendar", icon: "event", path: "/calendar" },
         {
           text: "Admin Section",
           icon: "supervised_user_circle",
@@ -82,10 +84,10 @@ export default {
         }
       ],
       baseEventObj: {
-        title: null,
-        description: null,
-        toDateTime: moment(),
-        fromDateTime: moment(),
+        title: "",
+        description: "",
+        toDateTime: moment().format("YYYY-MM-DD"),
+        fromDateTime: moment().format("YYYY-MM-DD"),
         staff: [],
         tasks: []
       }
@@ -114,16 +116,13 @@ export default {
   },
   methods: {
     createNewEvent() {
-      this.eventDialog = true;
-      this.$store.commit(
-        "setSelectedEvent",
-        JSON.parse(JSON.stringify(this.baseEventObj))
-      );
+      this.$store.commit("setEventDialog", true);
+      this.$store.commit("setSelectedEvent", this.baseEventObj);
     },
     logout() {
       let scope = this;
       axios
-        .get("http://localhost:3000/logout")
+        .get("http://localhost:3000/logout", null)
         .then(function() {
           scope.$store.commit("setSnackBar", {
             text: "Successfully logged out",
@@ -134,7 +133,14 @@ export default {
           this.$store.commit("setSessionUser", {});
         })
         .catch(function(err) {
-          scope.$store.commit("setSnackBar", { text: err, show: true });
+          scope.$store.commit("setSnackBar", {
+            text: err,
+            show: true
+          });
+          scope.$router.push("/login");
+          scope.$store.commit("setIsLoggedIn", false);
+          scope.$store.commit("setToken", null);
+          scope.$store.commit("setSessionUser", {});
         });
     }
   }
